@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StatusBar, Image, ScrollView, TouchableOpacity, AsyncStorage, StyleSheet } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 import Share, {ShareSheet, Button} from 'react-native-share';
 import css from '../../Styles/generator.styles';
@@ -40,22 +41,22 @@ export default class Generator extends Component {
         <ScrollView>
           <View style={css.containerOfTwoImages}>
             
-            <TouchableOpacity onPress={()=> {} } >
+            <TouchableOpacity onPress={()=> Actions.creator({image: image}) } >
               <Image  source={image} style={css.generatedImage}/>
             </TouchableOpacity>
             
-            <TouchableOpacity onPress={()=> {} } >
+            <TouchableOpacity onPress={()=> Actions.creator() } >
               <Image  source={image} style={css.generatedImage}/>
             </TouchableOpacity>
             
           </View>
           <View style={css.containerOfTwoImages}>
             
-            <TouchableOpacity onPress={()=> {} } >
+            <TouchableOpacity onPress={()=> Actions.creator() } >
               <Image  source={image} style={css.generatedImage}/>
             </TouchableOpacity>
             
-            <TouchableOpacity onPress={()=> {} } >
+            <TouchableOpacity onPress={()=> Actions.creator() } >
               <Image  source={image} style={css.generatedImage}/>
             </TouchableOpacity>
           </View>
