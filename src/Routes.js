@@ -11,7 +11,6 @@ import History from "./components/History/History";
 
 export default props => (
   <Router>
-    {/*<Scene key="intro" component={Intro} hideNavBar />*/}
     {/*<Scene key="login" component={Login} hideNavBar />*/}
     {/*<Scene key="register" component={Register} hideNavBar />*/}
     {/*<Scene key="main" component={Main} hideNavBar initil />*/}

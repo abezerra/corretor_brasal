@@ -8,8 +8,9 @@ const css = StyleSheet.create({
     marginBottom: 55,
   },
   headerTitle: {
-    fontSize: 25,
+    fontSize: 20,
     color: '#fff',
+    textAlign: 'center',
   },
   generatedImage: {
     width: 150,
@@ -21,6 +22,11 @@ const css = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 15,
     marginTop: 10,
+    height: 150,
+  },
+  instructions: {
+    marginTop: 20,
+    marginBottom: 20,
   },
 });
 
