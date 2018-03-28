@@ -50,7 +50,7 @@ const css = StyleSheet.create({
     textAlign: 'center',
     fontSize: 25,
     fontWeight: '600',
-    color: '#000',
+    color: '#fff',
   },
   signup: {
     fontSize: 14,
