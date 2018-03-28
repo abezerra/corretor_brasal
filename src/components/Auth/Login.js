@@ -72,10 +72,10 @@ export default class Login extends Component {
           />
           
           <TouchableOpacity style={css.button} underlayColor="#328fe6" onPress={this.auth}>
-            <Text style={css.label}>ETRAR</Text>
+            <Text style={css.label}>Entrar</Text>
           </TouchableOpacity>
           
-          <TouchableHighlight onPress={() => Actions.signup()}>
+          <TouchableHighlight onPress={() => Actions.register()}>
             <Text style={css.signup}> Ainda não possui cadastro? registre-se</Text>
           </TouchableHighlight>
         </View>
