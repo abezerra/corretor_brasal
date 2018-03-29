@@ -41,24 +41,14 @@ export default class Generator extends Component {
         <ScrollView>
           <View style={css.containerOfTwoImages}>
             
-            <TouchableOpacity onPress={()=> Actions.creator({image: image}) } >
-              <Image  source={image} style={css.generatedImage}/>
-            </TouchableOpacity>
-            
             <TouchableOpacity onPress={()=> Actions.creator() } >
               <Image  source={image} style={css.generatedImage}/>
             </TouchableOpacity>
             
-          </View>
-          <View style={css.containerOfTwoImages}>
+            {/*<TouchableOpacity onPress={()=> Actions.creator() } >*/}
+              {/*<Image  source={image} style={css.generatedImage}/>*/}
+            {/*</TouchableOpacity>*/}
             
-            <TouchableOpacity onPress={()=> Actions.creator() } >
-              <Image  source={image} style={css.generatedImage}/>
-            </TouchableOpacity>
-            
-            <TouchableOpacity onPress={()=> Actions.creator() } >
-              <Image  source={image} style={css.generatedImage}/>
-            </TouchableOpacity>
           </View>
         </ScrollView>
   
@@ -70,7 +60,7 @@ export default class Generator extends Component {
             <TouchableOpacity onPress={()=>{
               Share.open(shareOptions);
             }}>
-              <Image  source={image} style={css.generatedImage}/>
+              <Image  source={{uri: 'http://127.0.0.1:8000/img/0a26fe99bd89a052dd5d4cfc87bed132.jpg'}} style={css.generatedImage}/>
             </TouchableOpacity>
       
             <TouchableOpacity onPress={()=>{
@@ -79,19 +69,6 @@ export default class Generator extends Component {
               <Image  source={image} style={css.generatedImage}/>
             </TouchableOpacity>
     
-          </View>
-          <View style={css.containerOfTwoImages}>
-            <TouchableOpacity onPress={()=>{
-              Share.open(shareOptions);
-            }}>
-              <Image  source={image} style={css.generatedImage}/>
-            </TouchableOpacity>
-      
-            <TouchableOpacity onPress={()=>{
-              Share.open(shareOptions);
-            }}>
-              <Image  source={image} style={css.generatedImage}/>
-            </TouchableOpacity>
           </View>
         </ScrollView>
       </View>
