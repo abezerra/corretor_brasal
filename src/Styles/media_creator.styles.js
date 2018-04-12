@@ -9,6 +9,7 @@ const css = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'stretch',
+    backgroundColor: '#126f69',
   },
   loginCotainer: {
     flex: 1,
@@ -16,15 +17,14 @@ const css = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-// { height: 40, width: '100%', marginTop: 30, marginHorizontal: 15 }
-    color: 'white',
+    color: '#fff',
     padding: 10,
     height: 50,
-    borderColor: '#477E65',
+    borderColor: '#fff',
     borderWidth: 1,
     borderRadius: 25,
     alignSelf: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    backgroundColor: 'transparent',
     marginBottom: 8,
     width: 320,
   },
@@ -43,7 +43,7 @@ const css = StyleSheet.create({
     textAlign: 'center',
     fontSize: 15,
     fontWeight: '600',
-    color: '#000',
+    color: '#022714',
   },
   signup: {
     fontSize: 14,
@@ -55,9 +55,22 @@ const css = StyleSheet.create({
     marginBottom: 40,
   },
   logoImage: {
-    width: 195,
-    height: 41,
+    width: 355,
+    height: 75,
   },
+  viewOfInformations: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 15,
+    marginRight: 15,
+    marginBottom: 7,
+    marginTop: -30,
+  },
+  boxInformatio: {
+    color: '#fff',
+    fontSize: 18,
+    textAlign: 'justify'
+  }
 });
 
 export default css;
