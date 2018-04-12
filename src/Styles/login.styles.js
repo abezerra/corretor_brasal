@@ -1,10 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const css = StyleSheet.create({
-  // logo: {
-  //   width: 10,
-  //   height: 100,
-  // },
   bg: {
     flex: 1,
     width: null,
@@ -20,25 +16,22 @@ const css = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    width: 250,
-    color: '#fff',
+// { height: 40, width: '100%', marginTop: 30, marginHorizontal: 15 }
+    color: 'white',
     padding: 10,
     height: 50,
-    borderColor: '#126f69',
+    borderColor: '#477E65',
     borderWidth: 1,
     borderRadius: 25,
     alignSelf: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
     marginBottom: 8,
     width: 320,
-    // placeholderTextColor: '#fff'
   },
   button: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
     borderRadius: 25,
-    borderColor: '#328fe6',
     padding: 10,
     marginTop: 10,
     backgroundColor: '#8ad57b',
@@ -48,9 +41,9 @@ const css = StyleSheet.create({
     width: 230,
     alignSelf: 'center',
     textAlign: 'center',
-    fontSize: 25,
+    fontSize: 15,
     fontWeight: '600',
-    color: '#fff',
+    color: '#000',
   },
   signup: {
     fontSize: 14,
@@ -62,8 +55,8 @@ const css = StyleSheet.create({
     marginBottom: 40,
   },
   logoImage: {
-    width: 355,
-    height: 75,
+    width: 195,
+    height: 41,
   },
 });
 

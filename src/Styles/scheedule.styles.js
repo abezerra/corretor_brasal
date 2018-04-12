@@ -16,6 +16,14 @@ const css = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  labelInitial: {
+    fontSize: 20,
+    marginTop: 20,
+    backgroundColor: 'transparent',
+    color: '#fff',
+    fontWeight: '600',
+    marginBottom: 20
+  },
   input: {
     color: '#fff',
     padding: 10,
@@ -43,7 +51,7 @@ const css = StyleSheet.create({
     textAlign: 'center',
     fontSize: 15,
     fontWeight: '600',
-    color: '#022714',
+    color: '#000',
   },
   signup: {
     fontSize: 14,
@@ -55,22 +63,9 @@ const css = StyleSheet.create({
     marginBottom: 40,
   },
   logoImage: {
-    width: 355,
-    height: 75,
+    width: 195,
+    height: 41,
   },
-  viewOfInformations: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 15,
-    marginRight: 15,
-    marginBottom: 7,
-    marginTop: -30,
-  },
-  boxInformatio: {
-    color: '#fff',
-    fontSize: 18,
-    textAlign: 'justify'
-  }
 });
 
 export default css;

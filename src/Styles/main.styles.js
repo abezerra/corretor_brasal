@@ -1,5 +1,14 @@
 import { StyleSheet } from 'react-native'
 const css = StyleSheet.create({
+  bg: {
+    flex: 1,
+    width: null,
+  },
+  cotainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   main: {
     backgroundColor: '#005c5b',
     flex: 1,
@@ -17,11 +26,11 @@ const css = StyleSheet.create({
   },
   wellcomeClient: {
     fontSize: 20,
-    marginTop: 40,
+    marginTop: 20,
     backgroundColor: 'transparent',
     color: '#fff',
     fontWeight: '600',
-    marginBottom: 80
+    marginBottom: 20
   },
   threeBalls: {
     color: '#fff',
@@ -55,25 +64,77 @@ const css = StyleSheet.create({
     backgroundColor: 'transparent',
     // marginTop:
   },
-  button: {
+  sellerButton: {
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 25,
-    borderColor: '#8ad57b',
+    borderColor: '#8a0fe7',
     padding: 10,
-    marginTop: 60,
-    backgroundColor: '#8ad57b',
+    marginTop: 10,
+    backgroundColor: '#8a0fe7',
+    width: 320
+  },
+  scheduleCallButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 25,
+    borderColor: '#96BDAD',
+    padding: 10,
+    marginTop: 10,
+    backgroundColor: '#96BDAD',
+    width: 320
+  },
+  mediaGeneratorButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 25,
+    borderColor: '#A4DAAA',
+    padding: 10,
+    marginTop: 10,
+    backgroundColor: '#A4DAAA',
+    width: 320
+  },
+  ascomButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#666666',
+    padding: 10,
+    marginTop: 10,
+    backgroundColor: '#666666',
+    width: 320
+  },
+  historyButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#400ae8',
+    padding: 10,
+    marginTop: 10,
+    backgroundColor: '#400ae8',
     width: 320
   },
   label: {
     width: 230,
     alignSelf: 'center',
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: '600',
-    color: '#fff'
-  }
+    color: '#022714',
+  },
+  logo: {
+    marginTop: -60,
+    marginBottom: 10,
+  },
+  logoImage: {
+    width: 195,
+    height: 41,
+  },
 });
 
 export default css

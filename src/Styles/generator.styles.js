@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 const css = StyleSheet.create({
   main: {
-    backgroundColor: '#005c5b',
+    backgroundColor: '#fff',
     flex: 1,
   },
   header: {
@@ -9,19 +9,19 @@ const css = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 20,
-    color: '#fff',
+    color: '#000',
     textAlign: 'center',
   },
   generatedImage: {
-    width: 150,
-    height: 150,
+    width: 250,
+    height: 250,
   },
   containerOfTwoImages: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     marginBottom: 15,
-    marginTop: 10,
+    marginTop: 30,
     height: 150,
   },
   instructions: {

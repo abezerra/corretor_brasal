@@ -15,6 +15,7 @@ import {
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import css from '../../Styles/login.styles';
+import {api} from "../../../env";
 
 const logo = require('../../../assets/img/logo/logo.png');
 const bg = require('../../../assets/img/bg/login/login.jpg');
@@ -27,7 +28,7 @@ export default class Login extends Component {
   }
   
   async auth() {
-    await axios.post('http://127.0.0.1:8000/api/authenticate', {
+    await axios.post(`${api.apiUrl}/authenticate`, {
       email: this.state.email,
       password: this.state.password,
     }).then((res) => {
@@ -72,7 +73,7 @@ export default class Login extends Component {
           />
           
           <TouchableOpacity style={css.button} underlayColor="#328fe6" onPress={this.auth}>
-            <Text style={css.label}>Entrar</Text>
+            <Text style={css.label}>ENTRAR</Text>
           </TouchableOpacity>
           
           <TouchableHighlight onPress={() => Actions.register()}>

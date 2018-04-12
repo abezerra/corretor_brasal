@@ -3,6 +3,9 @@ package com.vendas;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.vonovak.AddCalendarEventPackage;
+import com.rnfs.RNFSPackage;
+import com.vinzscam.reactnativefileviewer.RNFileViewerPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import cl.json.RNSharePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -26,6 +29,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new AddCalendarEventPackage(),
+            new RNFSPackage(),
+            new RNFileViewerPackage(),
             new RNFetchBlobPackage(),
             new RNSharePackage(),
             new VectorIconsPackage()

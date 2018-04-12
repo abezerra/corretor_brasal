@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
-import { View, Text, Alert, StatusBar, Image, TouchableOpacity, TouchableHighlight, AsyncStorage, TextInput } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import {
+  View,
+  Text,
+  Alert,
+  StatusBar,
+  Image,
+  TouchableOpacity,
+  TouchableHighlight,
+  AsyncStorage,
+  TextInput,
+  CameraRoll,
+} from 'react-native';
 import axios from 'axios';
 import RNFetchBlob from 'react-native-fetch-blob'
-
 import css from "../../Styles/media_creator.styles";
+import FileViewer from 'react-native-file-viewer';
+import RNFS from 'react-native-fs';
+import { Actions } from 'react-native-router-flux';
+import Generator from "./Generator";
 
+// const { config, fs } = RNFetchBlob;
 export default class MediaCreator extends Component {
   constructor(props) {
     super(props);
@@ -30,15 +44,36 @@ export default class MediaCreator extends Component {
       .catch( error => console.log('erro ao fazer download da imagem', error))
   }
   
+  getLocalPath (url) {
+    const filename = url.split('/').pop();
+    return `${RNFS.DocumentDirectoryPath}/${filename}`;
+  }
+  
   async __manipulateImage(){
     await axios.post('http://laravel.test/api/image', {
       name: this.state.name,
       phone: this.state.phone
     })
       .then(res => {
-        //Alert("Midia gravada com sucesso, verifique a sua biblioteca de midas do app!")
         this.setState({name: '', phone: ''})
-        console.log('imagem alterada com sucesso', res.data)
+        console.log('imagem gerada com sucesso', res.data)
+  
+        const url = res.data.path
+        const localfile = this.getLocalPath(url)
+  
+        const options = {
+          fromUrl: url,
+          toFile: localfile
+        };
+        
+        RNFS.downloadFile(options).promise
+          .then( () => FileViewer.open(localfile))
+          .then( res => {
+            Actions.generator();
+          })
+          .catch( error => {
+            console.log('Erro ao abrir dados')
+          })
       })
       .catch( error => console.log('erro ao gravar midia', error))
   }
@@ -49,7 +84,16 @@ export default class MediaCreator extends Component {
         <StatusBar
           barStyle="light-content"
         />
+  
+        
+        
         <View style={css.loginCotainer}>
+          <View style={css.viewOfInformations}>
+            <Text style={css.boxInformatio}>
+              Digite abaixo o nome e telefone que deseja
+              que apareça na midia
+            </Text>
+          </View>
           <TextInput
             style={css.input}
             value={this.state.name}
@@ -68,7 +112,7 @@ export default class MediaCreator extends Component {
             placeholderTextColor="#fff" />
           
           <TouchableOpacity style={css.button} underlayColor="#328fe6" onPress={this.__manipulateImage}>
-            <Text style={css.label}>Gerar</Text>
+            <Text style={css.label}>GERAR</Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -137,6 +137,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-add-calendar-event')
+    compile project(':react-native-fs')
+    compile project(':react-native-file-viewer')
     compile project(':react-native-fetch-blob')
     compile project(':react-native-share')
     compile project(':react-native-vector-icons')
