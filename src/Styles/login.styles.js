@@ -53,7 +53,7 @@ const css = StyleSheet.create({
     color: '#000',
   },
   signup: {
-    fontSize: 18,
+    fontSize: 14,
     color: '#fff',
     margin: 30,
   },
