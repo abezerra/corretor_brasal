@@ -12,6 +12,7 @@ const css = StyleSheet.create({
     fontSize: 20,
     color: '#000',
     textAlign: 'center',
+    marginBottom: 20,
   },
   generatedImage: {
     width: 250,
