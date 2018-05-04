@@ -23,19 +23,11 @@ export default class Scheedules extends Component {
     
     AddCalendarEvent.presentEventDialog(eventConfig)
       .then((eventInfo ) => {
-        // handle success - receives an object with `calendarItemIdentifier` and `eventIdentifier` keys, both of type string.
-        // These are two different identifiers on iOS.
-        // On Android, where they are both equal and represent the event id, also strings.
-        // when false is returned, the dialog was dismissed
         if (eventInfo) {
-          console.warn(JSON.stringify(eventInfo));
         } else {
-          console.warn('dismissed');
         }
       })
       .catch((error) => {
-        // handle error such as when user rejected permissions
-        console.warn(error);
       });
   };
   
@@ -46,12 +38,9 @@ export default class Scheedules extends Component {
     
     AddCalendarEvent.presentEventDialog(eventConfig)
       .then(eventId => {
-        // eventId is always returned when editing events
         console.warn(eventId);
       })
       .catch((error) => {
-        // handle error such as when user rejected permissions
-        console.warn(error);
       });
   };
 
@@ -69,16 +58,12 @@ export default class Scheedules extends Component {
           <View style={css.lastEvent}>
             <Text style={css.labelInitial}>
               Agendamento de eventos
-              {/*date:{' '}*/}
-              {/*{moment*/}
-                {/*.utc(nowUTC)*/}
-                {/*.local()*/}
-                {/*.format('lll')}*/}
             </Text>
           </View>
     
           
           <TextInput
+            underlineColorAndroid="transparent"
             style={css.input}
             placeholderTextColor="#fff"
             placeholder="Identificador do evento"
@@ -88,13 +73,6 @@ export default class Scheedules extends Component {
           <TouchableOpacity style={css.button} underlayColor="#328fe6" onPress={() => Scheedules.addToCalendar(eventTitle, nowUTC)}>
             <Text style={css.label}>ADICIONAR AO CALENDÁRIO</Text>
           </TouchableOpacity>
-          {/*<Button*/}
-            {/*onPress={() => {*/}
-              {/*Scheedules.addToCalendar(eventTitle, nowUTC);*/}
-            {/*}}*/}
-            {/*title="Adicionar ao calendario"*/}
-            {/*style={css.button}*/}
-          {/*/>*/}
         </View>
       </View>
     );

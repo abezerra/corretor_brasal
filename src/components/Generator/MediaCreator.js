@@ -18,6 +18,7 @@ import FileViewer from 'react-native-file-viewer';
 import RNFS from 'react-native-fs';
 import { Actions } from 'react-native-router-flux';
 import Generator from "./Generator";
+import {api} from "../../../env";
 
 // const { config, fs } = RNFetchBlob;
 export default class MediaCreator extends Component {
@@ -50,10 +51,12 @@ export default class MediaCreator extends Component {
   }
   
   async __manipulateImage(){
-    await axios.post('http://laravel.test/api/image', {
+    const value = await AsyncStorage.getItem('@MySuperStore:token');
+    let options = { headers: { Authorization: `Bearer ${value}` } };
+    await axios.post(`${api.apiUrl}/image`, {
       name: this.state.name,
       phone: this.state.phone
-    })
+    }, options)
       .then(res => {
         this.setState({name: '', phone: ''})
         console.log('imagem gerada com sucesso', res.data)
@@ -95,6 +98,7 @@ export default class MediaCreator extends Component {
             </Text>
           </View>
           <TextInput
+            underlineColorAndroid="transparent"
             style={css.input}
             value={this.state.name}
             onChangeText={name => this.setState({ name })}
@@ -103,6 +107,7 @@ export default class MediaCreator extends Component {
             placeholderTextColor="#fff" />
     
           <TextInput
+            underlineColorAndroid="transparent"
             style={css.input}
             value={this.state.phone}
             onChangeText={phone => this.setState({ phone })}

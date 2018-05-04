@@ -31,6 +31,10 @@ export default class Login extends Component {
     await axios.post(`${api.apiUrl}/authenticate`, {
       email: this.state.email,
       password: this.state.password,
+      grant_type: 'password',
+      client_id: '1',
+      client_secret: 'c3cEQ9L7leTV4vnRbN8ehMmhjUdaSiGbys7xEn53',
+      scope: ''
     }).then((res) => {
         AsyncStorage.setItem('@MySuperStore:token', res.data.success.token);
         Actions.main();
@@ -53,6 +57,7 @@ export default class Login extends Component {
           </View>
           
           <TextInput
+            underlineColorAndroid="transparent"
             style={css.input}
             value={this.state.email}
             onChangeText={email => this.setState({ email })}
@@ -62,6 +67,7 @@ export default class Login extends Component {
           />
           
           <TextInput
+            underlineColorAndroid="transparent"
             style={css.input}
             value={this.state.password}
             onChangeText={password => this.setState({ password })}

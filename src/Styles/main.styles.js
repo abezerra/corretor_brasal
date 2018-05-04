@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+const { width } = Dimensions.get('window');
 const css = StyleSheet.create({
   bg: {
     flex: 1,
@@ -20,7 +21,7 @@ const css = StyleSheet.create({
   },
   featuredImage: {
     marginTop: 50,
-    width: 330,
+    width: (width - 45),
     height: 200,
     borderRadius: 20,
   },
@@ -73,7 +74,7 @@ const css = StyleSheet.create({
     padding: 10,
     marginTop: 10,
     backgroundColor: '#8a0fe7',
-    width: 320
+    width: (width - 45),
   },
   scheduleCallButton: {
     justifyContent: 'center',
@@ -84,7 +85,7 @@ const css = StyleSheet.create({
     padding: 10,
     marginTop: 10,
     backgroundColor: '#96BDAD',
-    width: 320
+    width: (width - 45),
   },
   mediaGeneratorButton: {
     justifyContent: 'center',
@@ -95,7 +96,7 @@ const css = StyleSheet.create({
     padding: 10,
     marginTop: 10,
     backgroundColor: '#A4DAAA',
-    width: 320
+    width: (width - 45),
   },
   ascomButton: {
     justifyContent: 'center',
@@ -106,7 +107,7 @@ const css = StyleSheet.create({
     padding: 10,
     marginTop: 10,
     backgroundColor: '#666666',
-    width: 320
+    width: (width - 45),
   },
   historyButton: {
     justifyContent: 'center',
@@ -117,7 +118,7 @@ const css = StyleSheet.create({
     padding: 10,
     marginTop: 10,
     backgroundColor: '#400ae8',
-    width: 320
+    width: (width - 45),
   },
   label: {
     width: 230,
