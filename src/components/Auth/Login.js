@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
+import Toast, {DURATION} from 'react-native-easy-toast';
 import css from '../../Styles/login.styles';
 import {api} from "../../../env";
 
@@ -25,8 +26,14 @@ export default class Login extends Component {
     super(props);
     this.state = { email: '', password: '' };
     this.auth = this.auth.bind(this);
+    this.__renderToaster = this.__renderToaster.bind(this);
   }
   
+  __renderToaster = () => (
+    <View style={css.toasterContainer}>
+      <Text style={css.toasterText}>Usuario ou senha invalida</Text>
+    </View>
+  )
   async auth() {
     await axios.post(`${api.apiUrl}/authenticate`, {
       email: this.state.email,
@@ -36,11 +43,12 @@ export default class Login extends Component {
       client_secret: 'c3cEQ9L7leTV4vnRbN8ehMmhjUdaSiGbys7xEn53',
       scope: ''
     }).then((res) => {
+        this.refs.toastSuccess.show('Bem vindo a Brasal Corretora', 3200);
         AsyncStorage.setItem('@MySuperStore:token', res.data.success.token);
         Actions.main();
       })
       .catch((err) => {
-        console.log('Erro ao se logar', err);
+        this.refs.toast.show('Usuario ou senha invalidos', 3200);
       });
   }
   
@@ -55,7 +63,21 @@ export default class Login extends Component {
           <View style={css.logo}>
             <Image source={logo} style={css.logoImage} />
           </View>
-          
+          <Toast
+            ref="toast"
+            style={{backgroundColor:'red'}}
+            position='top'
+            positionValue={200}
+            fadeOutDuration={2000}
+            textStyle={{color:'#fff'}}/>
+  
+          <Toast
+            ref="toastSuccess"
+            style={{backgroundColor:'#8ad57b'}}
+            position='top'
+            positionValue={200}
+            fadeOutDuration={2000}
+            textStyle={{color:'#000'}}/>
           <TextInput
             underlineColorAndroid="transparent"
             style={css.input}

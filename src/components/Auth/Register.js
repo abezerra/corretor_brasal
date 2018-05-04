@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
+import Toast, {DURATION} from 'react-native-easy-toast'
 import css from '../../Styles/login.styles';
 import {api} from "../../../env";
 
@@ -25,7 +26,14 @@ export default class Register extends Component {
     super(props);
     this.state = { name: '', email: '', password: '' };
     this.auth = this.register.bind(this);
+    this.__renderToaster = this.__renderToaster.bind(this);
   }
+  
+  __renderToaster = () => (
+    <View style={css.container}>
+      <Toast ref="toast"/>
+    </View>
+  )
   
   async register() {
     await axios.post(`${api.apiUrl}/register`, {
