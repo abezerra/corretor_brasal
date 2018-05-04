@@ -44,11 +44,12 @@ export default class Register extends Component {
       client_secret: 'c3cEQ9L7leTV4vnRbN8ehMmhjUdaSiGbys7xEn53',
       scope: ''
     }).then((res) => {
+        this.refs.toastSuccess.show('Bem vindo a Brasal Corretora', 3200);
         AsyncStorage.setItem('@MySuperStore:token', res.data.success.token);
         Actions.login();
       })
       .catch((err) => {
-        console.log('Erro ao se logar', err);
+        this.refs.toast.show('Erro ao se cadastrar, tente novamente.', 3200);
       });
   }
   
@@ -59,6 +60,22 @@ export default class Register extends Component {
           barStyle="light-content"
         />
         <View style={css.loginCotainer}>
+  
+          <Toast
+            ref="toast"
+            style={{backgroundColor:'red'}}
+            position='top'
+            positionValue={200}
+            fadeOutDuration={2000}
+            textStyle={{color:'#fff'}}/>
+  
+          <Toast
+            ref="toastSuccess"
+            style={{backgroundColor:'#8ad57b'}}
+            position='top'
+            positionValue={200}
+            fadeOutDuration={2000}
+            textStyle={{color:'#000'}}/>
           
           <View style={css.logo}>
             <Image source={logo} style={css.logoImage} />

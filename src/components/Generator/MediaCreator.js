@@ -94,7 +94,7 @@ export default class MediaCreator extends Component {
           <View style={css.viewOfInformations}>
             <Text style={css.boxInformatio}>
               Digite abaixo o nome e telefone que deseja
-              que apareça na midia
+              que apareça na mídia
             </Text>
           </View>
           <TextInput
