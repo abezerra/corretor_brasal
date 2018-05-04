@@ -23,7 +23,7 @@ export default props => (
             hideNavBar={false}
             navigationBarStyle={{backgroundColor: '#005c5b'}}
             titleStyle={{
-              fontSize: 22,
+              fontSize: 20,
               color: '#fff',
             }}
             leftButtonIconStyle={{ tintColor: 'white' }}/>
@@ -35,7 +35,7 @@ export default props => (
             hideNavBar={false}
             navigationBarStyle={{backgroundColor: '#005c5b'}}
             titleStyle={{
-              fontSize: 22,
+              fontSize: 20,
               color: '#fff',
             }}
             backButtonTintColor={{color: '#fff'}}
@@ -49,7 +49,7 @@ export default props => (
             hideNavBar={false}
             navigationBarStyle={{backgroundColor: '#005c5b'}}
             titleStyle={{
-              fontSize: 22,
+              fontSize: 20,
               color: '#fff',
             }}
             barButtonIconStyle={{tintColor: 'white'}}
@@ -62,7 +62,7 @@ export default props => (
             hideNavBar={false}
             navigationBarStyle={{backgroundColor: '#005c5b'}}
             titleStyle={{
-              fontSize: 22,
+              fontSize: 20,
               color: '#fff',
             }}
             barButtonIconStyle={{tintColor: 'white'}}
@@ -75,7 +75,7 @@ export default props => (
             hideNavBar={false}
             navigationBarStyle={{backgroundColor: '#005c5b'}}
             titleStyle={{
-              fontSize: 22,
+              fontSize: 20,
               color: '#fff',
             }}
             barButtonIconStyle={{tintColor: 'white'}}

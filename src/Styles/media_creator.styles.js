@@ -55,7 +55,7 @@ const css = StyleSheet.create({
     marginBottom: 40,
   },
   logoImage: {
-    width: 355,
+    width: (width - 45),
     height: 75,
   },
   viewOfInformations: {

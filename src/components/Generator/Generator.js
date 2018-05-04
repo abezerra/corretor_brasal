@@ -66,7 +66,7 @@ export default class Generator extends Component {
           <Text style={css.headerTitle}>Generator</Text>
         </View>
         
-        <Text style={css.headerTitle}>Midias disponiveis</Text>
+        <Text style={css.headerTitle}>Mídias disponíveis</Text>
         <ScrollView>
           <View style={css.containerOfTwoImages}>
             <TouchableOpacity onPress={() => Actions.creator()}>
