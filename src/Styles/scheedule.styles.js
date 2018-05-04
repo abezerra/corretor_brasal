@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-
+import { StyleSheet, Dimensions } from 'react-native';
+const { width } = Dimensions.get('window');
 const css = StyleSheet.create({
   bg: {
     flex: 1,
@@ -34,7 +34,7 @@ const css = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: 'transparent',
     marginBottom: 8,
-    width: 320,
+    width: (width - 45),
   },
   button: {
     justifyContent: 'center',
@@ -43,7 +43,7 @@ const css = StyleSheet.create({
     padding: 10,
     marginTop: 10,
     backgroundColor: '#8ad57b',
-    width: 320,
+    width: (width - 45),
   },
   label: {
     width: 230,

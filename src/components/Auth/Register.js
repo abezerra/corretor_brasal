@@ -15,6 +15,7 @@ import {
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import css from '../../Styles/login.styles';
+import {api} from "../../../env";
 
 const logo = require('../../../assets/img/logo/logo.png');
 const bg = require('../../../assets/img/bg/login/login.jpg');
@@ -27,9 +28,13 @@ export default class Register extends Component {
   }
   
   async register() {
-    await axios.post('http://127.0.0.1:8000/api/register', {
+    await axios.post(`${api.apiUrl}/register`, {
       email: this.state.email,
       password: this.state.password,
+      grant_type: 'password',
+      client_id: '1',
+      client_secret: 'c3cEQ9L7leTV4vnRbN8ehMmhjUdaSiGbys7xEn53',
+      scope: ''
     }).then((res) => {
         AsyncStorage.setItem('@MySuperStore:token', res.data.success.token);
         Actions.login();
@@ -52,6 +57,7 @@ export default class Register extends Component {
           </View>
           
           <TextInput
+            underlineColorAndroid="transparent"
             style={css.input}
             value={this.state.name}
             onChangeText={name => this.setState({ name })}
@@ -61,6 +67,7 @@ export default class Register extends Component {
           />
           
           <TextInput
+            underlineColorAndroid="transparent"
             style={css.input}
             value={this.state.email}
             onChangeText={email => this.setState({ email })}
@@ -70,6 +77,7 @@ export default class Register extends Component {
           />
           
           <TextInput
+            underlineColorAndroid="transparent"
             style={css.input}
             value={this.state.password}
             onChangeText={password => this.setState({ password })}

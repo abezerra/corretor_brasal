@@ -4,6 +4,7 @@ import {Actions} from 'react-native-router-flux';
 import axios from 'axios';
 import Share, {ShareSheet, Button} from 'react-native-share';
 import css from '../../Styles/generator.styles';
+import {api} from "../../../env";
 
 const image = require('../../../assets/img/gen/img.jpeg')
 
@@ -14,44 +15,43 @@ export default class Generator extends Component {
   }
   
   componentWillMount() {
-    this.__availableMedias();
-  
-    setTimeout( () => {
-  
-      this.__renderAvailableMedias()
-    }, 3000)
+    // this.__availableMedias();
+    //
+    // setTimeout( () => {
+    //
+    //   this.__renderAvailableMedias()
+    // }, 3000)
   }
   
   onCancel() {
     this.setState({visible: false})
-    console.log('share canceled')
   }
   
   onOpen() {
     this.setState({visible: true})
-    console.log('share is open')
   }
   
-  __availableMedias() {
-    axios.get(`http://127.0.0.1:8000/api/templatings/defaults/`)
-      .then(res => {
-        this.setState({medias: res.data})
-        console.log('the medias', this.state.medias)
-      })
-      .catch(error => console.error('error to get medias', error))
-  }
+  // async __availableMedias() {
+  //   const value = await AsyncStorage.getItem('@MySuperStore:token');
+  //   let options = { headers: { Authorization: `Bearer ${value}` } };
+  //   axios.get(`${api.apiUrl}/templatings/defaults/`, options)
+  //     .then(res => {
+  //       this.setState({medias: res.data})
+  //     })
+  //     .catch(error => console.error('error to get medias', error))
+  // }
   
-  __renderAvailableMedias() {
-    this.state.medias.map(m => {
-      return (
-        <View style={css.containerOfTwoImages} key={m.id}>
-          <TouchableOpacity onPress={() => Actions.creator()}>
-            <Image source={{uri: m.media_url}} style={css.generatedImage}/>
-          </TouchableOpacity>
-        </View>
-      )
-    })
-  }
+  // __renderAvailableMedias() {
+  //   this.state.medias.map(m => {
+  //     return (
+  //       <View style={css.containerOfTwoImages} key={m.id}>
+  //         <TouchableOpacity onPress={() => Actions.creator()}>
+  //           <Image source={{uri: m.media_url}} style={css.generatedImage}/>
+  //         </TouchableOpacity>
+  //       </View>
+  //     )
+  //   })
+  // }
   
   render() {
     let shareOptions = {
@@ -70,7 +70,7 @@ export default class Generator extends Component {
         <ScrollView>
           <View style={css.containerOfTwoImages}>
             <TouchableOpacity onPress={() => Actions.creator()}>
-              <Image source={{uri: 'http://127.0.0.1:8000/images/3d56477f9315e0c9fe4a616b07df56f1.jpg'}} style={css.generatedImage}/>
+              <Image source={{uri: `https://api-seguradora-staging.herokuapp.com/images/default.jpg`}} style={css.generatedImage}/>
             </TouchableOpacity>
           </View>
         </ScrollView>
