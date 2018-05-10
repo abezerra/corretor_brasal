@@ -15,7 +15,7 @@ const css = StyleSheet.create({
     marginBottom: 20,
   },
   generatedImage: {
-    width: 250,
+    width: (width - 20 ) / 2,
     height: 250,
   },
   containerOfTwoImages: {

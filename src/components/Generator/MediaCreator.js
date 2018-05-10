@@ -27,6 +27,7 @@ export default class MediaCreator extends Component {
     this.state = {name: '', phone: ''}
     this.__subscribeImage = this.__subscribeImage.bind(this)
     this.__manipulateImage = this.__manipulateImage.bind(this)
+    
   }
   
   __subscribeImage(){
@@ -40,12 +41,13 @@ export default class MediaCreator extends Component {
   async __imageDownload(){
     await RNFetchBlob.config({
       fileCache: true
-    }).fetch('GET', 'http://127.0.0.1:8000/defaults/01.jpg')
+    }).fetch('GET', 'https://api-bseg.brasal.com.br/images/default.jpg')
       .then( res => console.log('download da imagem', res.base64()))
       .catch( error => console.log('erro ao fazer download da imagem', error))
   }
   
   getLocalPath (url) {
+    console.log('a url no getLocalPath', url)
     const filename = url.split('/').pop();
     return `${RNFS.DocumentDirectoryPath}/${filename}`;
   }
@@ -53,9 +55,11 @@ export default class MediaCreator extends Component {
   async __manipulateImage(){
     const value = await AsyncStorage.getItem('@MySuperStore:token');
     let options = { headers: { Authorization: `Bearer ${value}` } };
+    console.log('props no media creator ja no gerador de iamgens', this.props.data)
     await axios.post(`${api.apiUrl}/image`, {
       name: this.state.name,
-      phone: this.state.phone
+      phone: this.state.phone,
+      image_name: this.props.data
     }, options)
       .then(res => {
         this.setState({name: '', phone: ''})
