@@ -20,6 +20,7 @@ export default class Generator extends Component {
   }
   
   
+  
   onCancel() {
     this.setState({visible: false})
   }
@@ -36,6 +37,10 @@ export default class Generator extends Component {
         this.setState({medias: res.data})
       })
       .catch(error => console.log('error to get medias', error))
+  
+    const allowedStorage = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
+    );
   }
   
   

@@ -6,7 +6,6 @@ import css from "../../Styles/generator.styles";
 export default class AvaliableMedias extends Component {
   constructor(props) {
     super(props)
-    console.log('props no avalibableMedias', props)
   }
   
   render() {

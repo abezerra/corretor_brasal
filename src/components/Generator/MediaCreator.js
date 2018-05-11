@@ -47,7 +47,6 @@ export default class MediaCreator extends Component {
   }
   
   getLocalPath (url) {
-    console.log('a url no getLocalPath', url)
     const filename = url.split('/').pop();
     return `${RNFS.DocumentDirectoryPath}/${filename}`;
   }
@@ -55,7 +54,7 @@ export default class MediaCreator extends Component {
   async __manipulateImage(){
     const value = await AsyncStorage.getItem('@MySuperStore:token');
     let options = { headers: { Authorization: `Bearer ${value}` } };
-    console.log('props no media creator ja no gerador de iamgens', this.props.data)
+
     await axios.post(`${api.apiUrl}/image`, {
       name: this.state.name,
       phone: this.state.phone,
@@ -63,8 +62,6 @@ export default class MediaCreator extends Component {
     }, options)
       .then(res => {
         this.setState({name: '', phone: ''})
-        console.log('imagem gerada com sucesso', res.data)
-  
         const url = res.data.path
         const localfile = this.getLocalPath(url)
   
