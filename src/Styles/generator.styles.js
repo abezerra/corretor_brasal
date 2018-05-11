@@ -12,9 +12,10 @@ const css = StyleSheet.create({
     fontSize: 20,
     color: '#000',
     textAlign: 'center',
+    marginBottom: 20,
   },
   generatedImage: {
-    width: 250,
+    width: (width - 20 ) / 2,
     height: 250,
   },
   containerOfTwoImages: {

@@ -55,7 +55,7 @@ const css = StyleSheet.create({
     marginBottom: 40,
   },
   logoImage: {
-    width: 355,
+    width: (width - 45),
     height: 75,
   },
   viewOfInformations: {
@@ -63,13 +63,14 @@ const css = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 15,
     marginRight: 15,
-    marginBottom: 7,
+    marginBottom: 27,
     marginTop: -30,
+    width: (width - 50),
   },
   boxInformatio: {
     color: '#fff',
     fontSize: 18,
-    textAlign: 'justify'
+    textAlign: 'center'
   }
 });
 

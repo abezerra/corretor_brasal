@@ -23,7 +23,7 @@ export default props => (
             hideNavBar={false}
             navigationBarStyle={{backgroundColor: '#005c5b'}}
             titleStyle={{
-              fontSize: 22,
+              fontSize: 20,
               color: '#fff',
             }}
             leftButtonIconStyle={{ tintColor: 'white' }}/>
@@ -31,11 +31,11 @@ export default props => (
     <Scene
             key="generator"
             component={Generator}
-            title="Midias"
+            title="Mídias"
             hideNavBar={false}
             navigationBarStyle={{backgroundColor: '#005c5b'}}
             titleStyle={{
-              fontSize: 22,
+              fontSize: 20,
               color: '#fff',
             }}
             backButtonTintColor={{color: '#fff'}}
@@ -45,11 +45,11 @@ export default props => (
     <Scene
             key="creator"
             component={MediaCreator}
-            title="Gerador de midia"
+            title="Gerador de mídia"
             hideNavBar={false}
             navigationBarStyle={{backgroundColor: '#005c5b'}}
             titleStyle={{
-              fontSize: 22,
+              fontSize: 20,
               color: '#fff',
             }}
             barButtonIconStyle={{tintColor: 'white'}}
@@ -62,7 +62,7 @@ export default props => (
             hideNavBar={false}
             navigationBarStyle={{backgroundColor: '#005c5b'}}
             titleStyle={{
-              fontSize: 22,
+              fontSize: 20,
               color: '#fff',
             }}
             barButtonIconStyle={{tintColor: 'white'}}
@@ -71,11 +71,11 @@ export default props => (
     <Scene
             key="history"
             component={History}
-            title="Historico de vendas"
+            title="Histórico de vendas"
             hideNavBar={false}
             navigationBarStyle={{backgroundColor: '#005c5b'}}
             titleStyle={{
-              fontSize: 22,
+              fontSize: 20,
               color: '#fff',
             }}
             barButtonIconStyle={{tintColor: 'white'}}

@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
+import Toast, {DURATION} from 'react-native-easy-toast'
 import css from '../../Styles/login.styles';
 import {api} from "../../../env";
 
@@ -25,25 +26,33 @@ export default class Register extends Component {
     super(props);
     this.state = { name: '', email: '', password: '' };
     this.auth = this.register.bind(this);
+    this.__renderToaster = this.__renderToaster.bind(this);
   }
-  
+
+  __renderToaster = () => (
+    <View style={css.container}>
+      <Toast ref="toast"/>
+    </View>
+  )
+
   async register() {
-    await axios.post(`${api.apiUrl}/register`, {
+    await axios.post(`${api.apiUrl}/signup`, {
       email: this.state.email,
       password: this.state.password,
       grant_type: 'password',
-      client_id: '1',
-      client_secret: 'c3cEQ9L7leTV4vnRbN8ehMmhjUdaSiGbys7xEn53',
+      client_id: '3',
+      client_secret: 'Nrk3ew8twSUZ8hKeixbtt188EUZi6vI3ottGooBp',
       scope: ''
     }).then((res) => {
+        this.refs.toastSuccess.show('Bem vindo a Brasal Corretora', 3200);
         AsyncStorage.setItem('@MySuperStore:token', res.data.success.token);
         Actions.login();
       })
       .catch((err) => {
-        console.log('Erro ao se logar', err);
+        this.refs.toast.show('Erro ao se cadastrar, tente novamente.', 3200);
       });
   }
-  
+
   render() {
     return (
       <ImageBackground source={bg} style={css.bg}>
@@ -51,11 +60,27 @@ export default class Register extends Component {
           barStyle="light-content"
         />
         <View style={css.loginCotainer}>
-          
+
+          <Toast
+            ref="toast"
+            style={{backgroundColor:'red'}}
+            position='top'
+            positionValue={200}
+            fadeOutDuration={2000}
+            textStyle={{color:'#fff'}}/>
+
+          <Toast
+            ref="toastSuccess"
+            style={{backgroundColor:'#8ad57b'}}
+            position='top'
+            positionValue={200}
+            fadeOutDuration={2000}
+            textStyle={{color:'#000'}}/>
+
           <View style={css.logo}>
             <Image source={logo} style={css.logoImage} />
           </View>
-          
+
           <TextInput
             underlineColorAndroid="transparent"
             style={css.input}
@@ -65,7 +90,7 @@ export default class Register extends Component {
             multiline={false}
             placeholderTextColor="#fff"
           />
-          
+
           <TextInput
             underlineColorAndroid="transparent"
             style={css.input}
@@ -75,7 +100,7 @@ export default class Register extends Component {
             multiline={false}
             placeholderTextColor="#fff"
           />
-          
+
           <TextInput
             underlineColorAndroid="transparent"
             style={css.input}
@@ -87,11 +112,11 @@ export default class Register extends Component {
             multiline={false}
             placeholderTextColor="#fff"
           />
-          
+
           <TouchableOpacity style={css.button} underlayColor="#328fe6" onPress={this.register}>
             <Text style={css.label}>Cadastrar</Text>
           </TouchableOpacity>
-          
+
           <TouchableHighlight onPress={() => Actions.login()}>
             <Text style={css.signup}> Ja possuo casdastro</Text>
           </TouchableHighlight>

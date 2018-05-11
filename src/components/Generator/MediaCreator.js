@@ -27,6 +27,7 @@ export default class MediaCreator extends Component {
     this.state = {name: '', phone: ''}
     this.__subscribeImage = this.__subscribeImage.bind(this)
     this.__manipulateImage = this.__manipulateImage.bind(this)
+    
   }
   
   __subscribeImage(){
@@ -40,7 +41,7 @@ export default class MediaCreator extends Component {
   async __imageDownload(){
     await RNFetchBlob.config({
       fileCache: true
-    }).fetch('GET', 'http://127.0.0.1:8000/defaults/01.jpg')
+    }).fetch('GET', 'https://api-bseg.brasal.com.br/images/default.jpg')
       .then( res => console.log('download da imagem', res.base64()))
       .catch( error => console.log('erro ao fazer download da imagem', error))
   }
@@ -53,14 +54,14 @@ export default class MediaCreator extends Component {
   async __manipulateImage(){
     const value = await AsyncStorage.getItem('@MySuperStore:token');
     let options = { headers: { Authorization: `Bearer ${value}` } };
+
     await axios.post(`${api.apiUrl}/image`, {
       name: this.state.name,
-      phone: this.state.phone
+      phone: this.state.phone,
+      image_name: this.props.data
     }, options)
       .then(res => {
         this.setState({name: '', phone: ''})
-        console.log('imagem gerada com sucesso', res.data)
-  
         const url = res.data.path
         const localfile = this.getLocalPath(url)
   
@@ -94,7 +95,7 @@ export default class MediaCreator extends Component {
           <View style={css.viewOfInformations}>
             <Text style={css.boxInformatio}>
               Digite abaixo o nome e telefone que deseja
-              que apareça na midia
+              que apareça na mídia
             </Text>
           </View>
           <TextInput

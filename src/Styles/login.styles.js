@@ -58,6 +58,15 @@ const css = StyleSheet.create({
     width: 195,
     height: 41,
   },
+  
+  toasterContainer: {
+    backgroundColor: 'red',
+  },
+  
+  toasterText: {
+    color: '#fff',
+    fontSize: 30,
+  },
 });
 
 export default css;

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Share, {ShareSheet, Button} from 'react-native-share';
 import css from '../../Styles/generator.styles';
 import {api} from "../../../env";
+import AvaliableMedias from "./AvaliableMedias";
 
 const image = require('../../../assets/img/gen/img.jpeg')
 
@@ -14,14 +15,11 @@ export default class Generator extends Component {
     this.state = {visible: false, medias: []}
   }
   
-  componentWillMount() {
-    // this.__availableMedias();
-    //
-    // setTimeout( () => {
-    //
-    //   this.__renderAvailableMedias()
-    // }, 3000)
+  componentDidMount() {
+    this.__availableMedias()
   }
+  
+  
   
   onCancel() {
     this.setState({visible: false})
@@ -31,71 +29,54 @@ export default class Generator extends Component {
     this.setState({visible: true})
   }
   
-  // async __availableMedias() {
-  //   const value = await AsyncStorage.getItem('@MySuperStore:token');
-  //   let options = { headers: { Authorization: `Bearer ${value}` } };
-  //   axios.get(`${api.apiUrl}/templatings/defaults/`, options)
-  //     .then(res => {
-  //       this.setState({medias: res.data})
-  //     })
-  //     .catch(error => console.error('error to get medias', error))
-  // }
+  async __availableMedias() {
+    const value = await AsyncStorage.getItem('@MySuperStore:token');
+    const options = {headers: {Authorization: `Bearer ${value}`}};
+    await axios.get(`${api.apiUrl}/templatings/defaults`, options)
+      .then(res => {
+        this.setState({medias: res.data})
+      })
+      .catch(error => console.log('error to get medias', error))
   
-  // __renderAvailableMedias() {
-  //   this.state.medias.map(m => {
-  //     return (
-  //       <View style={css.containerOfTwoImages} key={m.id}>
-  //         <TouchableOpacity onPress={() => Actions.creator()}>
-  //           <Image source={{uri: m.media_url}} style={css.generatedImage}/>
-  //         </TouchableOpacity>
-  //       </View>
-  //     )
-  //   })
-  // }
-  
-  render() {
-    let shareOptions = {
-      title: "React Native",
-      message: "Hola mundo",
-      url: "http://facebook.github.io/react-native/",
-      subject: "Share Link" //  for email
-    };
-    return (
-      <View style={css.main}>
-        <View style={css.header}>
-          <Text style={css.headerTitle}>Generator</Text>
-        </View>
-        
-        <Text style={css.headerTitle}>Midias disponiveis</Text>
-        <ScrollView>
-          <View style={css.containerOfTwoImages}>
-            <TouchableOpacity onPress={() => Actions.creator()}>
-              <Image source={{uri: `https://api-seguradora-staging.herokuapp.com/images/default.jpg`}} style={css.generatedImage}/>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-        
-        
-        {/*<Text style={css.headerTitle}>Minhas midias</Text>*/}
-        {/*<ScrollView>*/}
-          {/*<View style={css.containerOfTwoImages}>*/}
-            {/**/}
-            {/*<TouchableOpacity onPress={() => {*/}
-              {/*Share.open(shareOptions);*/}
-            {/*}}>*/}
-              {/*<Image source={{uri: 'http://127.0.0.1:8000/img/0a26fe99bd89a052dd5d4cfc87bed132.jpg'}}*/}
-                     {/*style={css.generatedImage}/>*/}
-            {/*</TouchableOpacity>*/}
-            {/**/}
-            {/*<TouchableOpacity onPress={() => {*/}
-              {/*Share.open(shareOptions);*/}
-            {/*}}>*/}
-              {/*<Image source={image} style={css.generatedImage}/>*/}
-            {/*</TouchableOpacity>*/}
-          {/**/}
-          {/*</View>*/}
-        {/*</ScrollView>*/}
-      </View>
+    const allowedStorage = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
     );
   }
+  
+  
+  __renderAvailableMedias() {
+    const {medias} = this.state
+    if(medias !== 0){
+      return(
+        medias.map( (m) => (
+            <AvaliableMedias key={m.id} item={m}/>
+        ))
+      )
+    }
+}
+
+
+render()
+{
+  let shareOptions = {
+    title: "React Native",
+    message: "Hola mundo",
+    url: "http://facebook.github.io/react-native/",
+    subject: "Share Link" //  for email
+  };
+  return (
+    <View style={css.main}>
+      <View style={css.header}>
+        <Text style={css.headerTitle}>Generator</Text>
+      </View>
+      
+      <Text style={css.headerTitle}>Mídias disponíveis</Text>
+      <ScrollView>
+        <View style={css.containerOfTwoImages}>
+          {this.__renderAvailableMedias()}
+        </View>
+      </ScrollView>
+    </View>
+  );
+}
 }
