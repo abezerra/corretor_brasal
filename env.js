@@ -10,9 +10,10 @@ export const dev = {
 };
 
 export const api = {
-  apiUrl: 'https://api-bseg.brasal.com.br/api',
+  apiUrl: 'http://127.0.0.1:8000/api',
 };
-// apiUrl: 'http://127.0.0.1:8000/api',
+//
+//'https://api-bseg.brasal.com.br/api',
 
 export const pusher = {
   id: 'b1c9dfd0226ff506116d',
