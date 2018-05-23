@@ -153,19 +153,19 @@ const css = StyleSheet.create({
 
   headerIndicators: {
     backgroundColor: 'transparent',
-    padding: 20,
+    padding: 10,
   },
 
   descriptionOfMeta: {
     color: '#4a6072' ,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '600',
   },
 
   date: {
     color: '#859db1',
     fontWeight: '400',
-    fontSize: 16,
+    fontSize: 14,
   },
 
   ratingViews: {
@@ -179,7 +179,7 @@ const css = StyleSheet.create({
 
   numberOfIndicator: {
     color: '#496072',
-    fontSize: 35,
+    fontSize: 25,
     fontWeight: '600',
   },
 
