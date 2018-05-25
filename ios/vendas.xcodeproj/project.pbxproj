@@ -44,6 +44,7 @@
 		544A7A9A20B4BC910095BC27 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 544A7A9620B4BA260095BC27 /* libRNSVG.a */; };
 		54765785207FCC25001F7DB3 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54765784207FCC05001F7DB3 /* libRCTCameraRoll.a */; };
 		547657CB207FCECF001F7DB3 /* RNFS.xcodeproj in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F52D70535CF40E9934B7AE5 /* RNFS.xcodeproj */; };
+		54AA046820B852A10085DC27 /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54AA043520B852920085DC27 /* libART.a */; };
 		5999830D6BC24CE0B67952F1 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 994E3A80D61C495392309202 /* EvilIcons.ttf */; };
 		59C8606AFEDC48CE9E8147E1 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB6DEB5A363248898C4AB588 /* Zocial.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -378,6 +379,20 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNAddCalendarEvent;
 		};
+		54AA043420B852920085DC27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54AA042F20B852900085DC27 /* ART.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
+			remoteInfo = ART;
+		};
+		54AA043620B852920085DC27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54AA042F20B852900085DC27 /* ART.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 323A12871E5F266B004975B8;
+			remoteInfo = "ART-tvOS";
+		};
 		5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
@@ -450,6 +465,7 @@
 		54534AA1209CF6FA00904F25 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		54765712207FBD88001F7DB3 /* RNFileDownload.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFileDownload.xcodeproj; path = "../node_modules/react-native-file-download/RNFileDownload.xcodeproj"; sourceTree = "<group>"; };
 		5476577F207FCC04001F7DB3 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
+		54AA042F20B852900085DC27 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		63B9D3CE959F44BAA9426AB4 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 		685E6F1F0EC0456A97311F22 /* libRNShare.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNShare.a; sourceTree = "<group>"; };
@@ -510,6 +526,7 @@
 				A581CD8DA20C4883B085F2EE /* libRNFS.a in Frameworks */,
 				5138F6ECFDC4491094DD22D4 /* libRNAddCalendarEvent.a in Frameworks */,
 				46B1348A82CE48FC921B7AF8 /* libRNSVG.a in Frameworks */,
+				54AA046820B852A10085DC27 /* libART.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +770,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		54AA043020B852900085DC27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54AA043520B852920085DC27 /* libART.a */,
+				54AA043720B852920085DC27 /* libART-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -774,6 +800,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				54AA042F20B852900085DC27 /* ART.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -975,6 +1002,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 54AA043020B852900085DC27 /* Products */;
+					ProjectRef = 54AA042F20B852900085DC27 /* ART.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -1370,6 +1401,20 @@
 			fileType = archive.ar;
 			path = libRNAddCalendarEvent.a;
 			remoteRef = 5476581F207FE84C001F7DB3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54AA043520B852920085DC27 /* libART.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libART.a;
+			remoteRef = 54AA043420B852920085DC27 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54AA043720B852920085DC27 /* libART-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libART-tvOS.a";
+			remoteRef = 54AA043620B852920085DC27 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {

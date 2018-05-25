@@ -12,8 +12,8 @@ import MediaCreator from "./components/Generator/MediaCreator";
 
 export default props => (
   <Router>
-    {/*}<Scene key="login" component={Login} hideNavBar />
-    <Scene key="register" component={Register} hideNavBar /> */}
+    {/*<Scene key="login" component={Login} hideNavBar />*/}
+    {/*<Scene key="register" component={Register} hideNavBar />*/}
     <Scene key="main" component={Main} hideNavBar initil />
     <Scene key="sales" component={Sales} title="Vendas" hideNavBar={false}  navigationBarStyle={{backgroundColor: '#005c5b'}} />
     <Scene

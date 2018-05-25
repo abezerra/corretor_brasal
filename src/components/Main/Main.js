@@ -10,13 +10,20 @@ import {
   StyleSheet,
   Button,
   ImageBackground,
+  ART,
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import ActionButton from 'react-native-circular-action-menu';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {api} from '../../../env';
 import axios from 'axios';
-import {VictoryBar, VictoryChart, VictoryTheme, VictoryPie, VictoryLine} from "victory-native";
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryTheme,
+  VictoryPie,
+  VictoryLine
+} from "victory-native";
 
 import css from '../../Styles/main.styles';
 
@@ -28,6 +35,7 @@ const history = require('../../../assets/img/icons/history.png');
 const logo = require('../../../assets/img/logo/logo.png');
 
 const bg = require('../../../assets/img/bg/login/login.jpg');
+
 
 export default class Main extends Component {
   
@@ -51,7 +59,9 @@ export default class Main extends Component {
         
         axios.get(`${api.apiUrl}/metas/mymeta/${this.state.user_id}`, options)
           .then(res => {
-            this.setState({listMetas: res.data.weekly, daily: res.data.daily})
+            this.setState({
+              listMetas: res.data.weekly,
+              daily: res.data.daily})
           })
           .catch(error => console.log('erro ao buscar minhas metas', res.data))
         
@@ -98,7 +108,7 @@ export default class Main extends Component {
               <Text style={css.numberOfIndicator}>
                 {daily.production_percentage}
               </Text>
-              <Text style={css.descriptionOfParadaRight}>% de algo</Text>
+              <Text style={css.descriptionOfParadaRight}>Atingido</Text>
             </View>
           
           </View>
@@ -110,9 +120,15 @@ export default class Main extends Component {
   __renderIndicators() {
     const role = this.state.role
     const data = this.state.listMetas
+    
+    console.log('lisa de metas', data)
     var met = []
     data.map(m => {
-      met.push({x: m.production_percentage, y: m.production_meta, label: m.description})
+      met.push({
+        x: m.production_percentage,
+        y: m.production_meta,
+        label: m.day,
+      })
     })
     
     return (
@@ -121,18 +137,30 @@ export default class Main extends Component {
         {this.__henderHeader()}
         
         <View style={css.chartArea}>
-          <VictoryPie
-            innerRadius={50}
-            padAngle={3}
-            theme={VictoryTheme.material}
-            data={met}
-            height={300}
-            style={{
-              data: {
-                strokeWidth: 3
-              }
-            }}
-          />
+
+            <VictoryPie
+              innerRadius={50}
+              padAngle={3}
+              theme={VictoryTheme.material}
+              data={met}
+              //width={300}
+              height={300}
+              style={{
+                data: {
+                  strokeWidth: 3
+                },
+                labels: { fontSize: 10, fill: "#000" }
+              }}
+            />
+          {/*<VictoryChart height={200} width={200}*/}
+                        {/*domainPadding={{ x: 50, y: [0, 20] }}*/}
+                        {/*scale={{ x: "time" }}*/}
+          {/*>*/}
+            {/*<VictoryBar*/}
+              {/*theme={VictoryTheme.material}*/}
+              {/*data={met}*/}
+            {/*/>*/}
+          {/*</VictoryChart>*/}
         </View>
       </View>
     );
@@ -160,7 +188,7 @@ export default class Main extends Component {
           <TouchableOpacity style={css.mediaGeneratorButton} underlayColor="#000" onPress={() => Actions.generator()}>
             <Text style={css.label}>GERADOR DE MIDIA</Text>
           </TouchableOpacity>
-          
+         
           {this.__renderIndicators()}
         </View>
       </ImageBackground>
