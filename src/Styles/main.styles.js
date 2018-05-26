@@ -136,6 +136,67 @@ const css = StyleSheet.create({
     width: 195,
     height: 41,
   },
+
+  //indicators
+  containerIndicators: {
+    backgroundColor: '#fff',
+    marginTop: 10,
+    borderRadius: 4,
+    borderColor: '#000',
+    shadowColor: '#000',
+    shadowRadius: 7,
+    shadowOpacity: 0.3,
+    shadowOffset: {width: 0, height: 1},
+    opacity: (0.8),
+    width: (width - 30),
+  },
+
+  headerIndicators: {
+    backgroundColor: 'transparent',
+    padding: 10,
+  },
+
+  descriptionOfMeta: {
+    color: '#4a6072' ,
+    fontSize: 18,
+    fontWeight: '600',
+  },
+
+  date: {
+    color: '#859db1',
+    fontWeight: '400',
+    fontSize: 14,
+  },
+
+  ratingViews: {
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+  },
+
+  leftRating: {
+    backgroundColor: 'transparent',
+  },
+
+  numberOfIndicator: {
+    color: '#496072',
+    fontSize: 25,
+    fontWeight: '600',
+  },
+
+  descriptionOfParadaLeft :{
+    color: '#a376d7',
+  },
+
+  descriptionOfParadaRight: {
+    color: '#f05e62',
+  },
+
+  chartArea: {
+    width: (width - 30),
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+
 });
 
 export default css

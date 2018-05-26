@@ -12,8 +12,8 @@ import MediaCreator from "./components/Generator/MediaCreator";
 
 export default props => (
   <Router>
-    <Scene key="login" component={Login} hideNavBar />
-    <Scene key="register" component={Register} hideNavBar />
+    {/*<Scene key="login" component={Login} hideNavBar />*/}
+    {/*<Scene key="register" component={Register} hideNavBar />*/}
     <Scene key="main" component={Main} hideNavBar initil />
     <Scene key="sales" component={Sales} title="Vendas" hideNavBar={false}  navigationBarStyle={{backgroundColor: '#005c5b'}} />
     <Scene
@@ -27,7 +27,7 @@ export default props => (
               color: '#fff',
             }}
             leftButtonIconStyle={{ tintColor: 'white' }}/>
-      
+
     <Scene
             key="generator"
             component={Generator}
@@ -40,8 +40,8 @@ export default props => (
             }}
             backButtonTintColor={{color: '#fff'}}
             leftButtonIconStyle={{ tintColor: 'white' }}/>
-      
-      
+
+
     <Scene
             key="creator"
             component={MediaCreator}
@@ -54,7 +54,7 @@ export default props => (
             }}
             barButtonIconStyle={{tintColor: 'white'}}
             leftButtonIconStyle={{ tintColor: 'white' }}/>
-      
+
     <Scene
             key="support"
             component={Support}
@@ -67,7 +67,7 @@ export default props => (
             }}
             barButtonIconStyle={{tintColor: 'white'}}
             leftButtonIconStyle={{ tintColor: 'white' }}/>
-      
+
     <Scene
             key="history"
             component={History}

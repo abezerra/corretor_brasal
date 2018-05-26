@@ -4,6 +4,7 @@ package com.vendas;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
 import com.vonovak.AddCalendarEventPackage;
 import com.rnfs.RNFSPackage;
 import com.vinzscam.reactnativefileviewer.RNFileViewerPackage;
@@ -33,6 +34,7 @@ public class MainApplication extends Application implements ReactApplication, Sh
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
+            new SvgPackage(),
                     new AddCalendarEventPackage(),
                     new RNFSPackage(),
                     new RNFileViewerPackage(),
