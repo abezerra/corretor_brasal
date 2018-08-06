@@ -49,7 +49,14 @@ const css = StyleSheet.create({
   signup: {
     fontSize: 14,
     color: '#fff',
-    margin: 30,
+    margin: 10,
+  },
+
+  recover: {
+    fontSize: 14,
+    color: '#fff',
+    margin: 10,
+    marginTop: 30
   },
 
   logo: {

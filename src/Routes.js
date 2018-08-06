@@ -9,11 +9,13 @@ import Generator from "./components/Generator/Generator";
 import Support from "./components/Support/Support";
 import History from "./components/History/History";
 import MediaCreator from "./components/Generator/MediaCreator";
+import Recover from './components/Auth/Recover';
 
 export default props => (
   <Router>
     <Scene key="login" component={Login} hideNavBar />
     <Scene key="register" component={Register} hideNavBar />
+    <Scene key="recover" component={Recover} hideNavBar />
     <Scene key="main" component={Main} hideNavBar initil />
     <Scene key="sales" component={Sales} title="Vendas" hideNavBar={false}  navigationBarStyle={{backgroundColor: '#005c5b'}} />
     <Scene

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import {
-  Alert,
   View,
   Text,
   TextInput,
-  Button,
   Image,
   ImageBackground,
   TouchableOpacity,
@@ -24,8 +22,8 @@ const bg = require('../../../assets/img/bg/login/login.jpg');
 export default class Register extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: '', email: '', password: '' };
-    this.auth = this.register.bind(this);
+    this.state = { name: '', email: '', password: '', cpf: '' };
+    this.register = this.register.bind(this);
     this.__renderToaster = this.__renderToaster.bind(this);
   }
 
@@ -36,16 +34,20 @@ export default class Register extends Component {
   )
 
   async register() {
+    console.log('state', this.state);
+    
     await axios.post(`${api.apiUrl}/signup`, {
+      name: this.state.name,
+      cpf: this.state.cpf,
       email: this.state.email,
       password: this.state.password,
+      role: 'corretor',
       grant_type: 'password',
       client_id: '3',
       client_secret: 'Nrk3ew8twSUZ8hKeixbtt188EUZi6vI3ottGooBp',
       scope: ''
     }).then((res) => {
         this.refs.toastSuccess.show('Bem vindo a Brasal Corretora', 3200);
-        AsyncStorage.setItem('@MySuperStore:token', res.data.success.token);
         Actions.login();
       })
       .catch((err) => {
@@ -94,9 +96,19 @@ export default class Register extends Component {
           <TextInput
             underlineColorAndroid="transparent"
             style={css.input}
+            value={this.state.cpf}
+            onChangeText={cpf => this.setState({ cpf })}
+            placeholder="CPF"
+            multiline={false}
+            placeholderTextColor="#fff"
+          />
+
+          <TextInput
+            underlineColorAndroid="transparent"
+            style={css.input}
             value={this.state.email}
             onChangeText={email => this.setState({ email })}
-            placeholder="Usuario"
+            placeholder="E-mail"
             multiline={false}
             placeholderTextColor="#fff"
           />

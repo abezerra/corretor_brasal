@@ -21,6 +21,7 @@
     "react-native-file-download": "0.0.10",
     "react-native-file-viewer": "^1.0.3",
     "react-native-fs": "^2.9.12",
+    "react-native-onesignal": "^3.2.5",
     "react-native-share": "^1.0.27",
     "react-native-svg": "^6.3.1",
     "react-native-svg-charts": "^5.0.0",

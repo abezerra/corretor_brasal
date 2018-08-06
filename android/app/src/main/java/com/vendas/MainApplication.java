@@ -4,6 +4,7 @@ package com.vendas;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
 import com.horcrux.svg.SvgPackage;
 import com.vonovak.AddCalendarEventPackage;
 import com.rnfs.RNFSPackage;
@@ -34,6 +35,7 @@ public class MainApplication extends Application implements ReactApplication, Sh
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
+            new ReactNativeOneSignalPackage(),
             new SvgPackage(),
                     new AddCalendarEventPackage(),
                     new RNFSPackage(),
