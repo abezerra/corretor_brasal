@@ -114,11 +114,11 @@ export default class Register extends Component {
           />
 
           <TouchableOpacity style={css.button} underlayColor="#328fe6" onPress={this.register}>
-            <Text style={css.label}>Cadastrar</Text>
+            <Text style={css.label}>Cadastrar-se</Text>
           </TouchableOpacity>
 
           <TouchableHighlight onPress={() => Actions.login()}>
-            <Text style={css.signup}> Ja possuo casdastro</Text>
+            <Text style={css.signup}> Já possuo casdastro</Text>
           </TouchableHighlight>
         </View>
         {/* </View> */}

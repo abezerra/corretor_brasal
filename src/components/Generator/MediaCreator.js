@@ -41,7 +41,7 @@ export default class MediaCreator extends Component {
   async __imageDownload(){
     await RNFetchBlob.config({
       fileCache: true
-    }).fetch('GET', 'https://api-bseg.brasal.com.br/images/default.jpg')
+    }).fetch('GET', 'https://apibseg.brasal.com.br/images/default.jpg')
       .then( res => console.log('download da imagem', res.base64()))
       .catch( error => console.log('erro ao fazer download da imagem', error))
   }

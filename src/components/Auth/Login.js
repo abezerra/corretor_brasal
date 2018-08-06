@@ -67,7 +67,7 @@ export default class Login extends Component {
             ref="toast"
             style={{backgroundColor:'red'}}
             position='top'
-            positionValue={200}
+            positionValue={100}
             fadeOutDuration={2000}
             textStyle={{color:'#fff'}}/>
 
@@ -75,7 +75,7 @@ export default class Login extends Component {
             ref="toastSuccess"
             style={{backgroundColor:'#8ad57b'}}
             position='top'
-            positionValue={200}
+            positionValue={100}
             fadeOutDuration={2000}
             textStyle={{color:'#000'}}/>
           <TextInput

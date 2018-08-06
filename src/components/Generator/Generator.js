@@ -19,8 +19,6 @@ export default class Generator extends Component {
     this.__availableMedias()
   }
   
-  
-  
   onCancel() {
     this.setState({visible: false})
   }

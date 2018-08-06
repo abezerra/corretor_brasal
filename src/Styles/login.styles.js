@@ -45,13 +45,15 @@ const css = StyleSheet.create({
     fontWeight: '600',
     color: '#000',
   },
+
   signup: {
     fontSize: 14,
     color: '#fff',
     margin: 30,
   },
+
   logo: {
-    marginTop: 70,
+    marginTop: 20,
     marginBottom: 40,
   },
   logoImage: {

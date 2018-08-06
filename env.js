@@ -10,7 +10,7 @@ export const dev = {
 };
 
 export const api = {
-  apiUrl: 'http://127.0.0.1:8000/api',
+  apiUrl: 'https://apibseg.brasal.com.br/api',
 };
 //
 //'https://api-bseg.brasal.com.br/api',

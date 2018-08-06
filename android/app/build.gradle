@@ -105,9 +105,9 @@ android {
     defaultConfig {
         applicationId 'br.com.brasal.appvendas'
         minSdkVersion 23
-        targetSdkVersion 23
-        versionCode 8
-        versionName '1.8'
+        targetSdkVersion 24
+        versionCode 9
+        versionName '1.9'
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
